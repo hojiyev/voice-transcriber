@@ -21,7 +21,7 @@ def transcribe():
         file_url = f"https://api.telegram.org/file/bot{bot_token}/{file_path}"
     
     if not file_url:
-        return jsonify({"error": "No file_url or file_path provided"}), 400
+        return jsonify({"text": ""}), 200
     
     try:
         # Faylni yuklab olish
