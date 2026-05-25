@@ -58,8 +58,7 @@ def transcribe():
             transcript = client.audio.transcriptions.create(
                 model="gpt-4o-transcribe",
                 file=audio_file,
-                language="uz",
-                prompt="Foydalanuvchi o'zbek tilida gaplashadi. Ismi Alisher. Hodiyev Education o'quv markazi, Obsidian, ChatGPT, Claude, Make.com, Telegram bot, Python kabi atamalar uchrashi mumkin. Lotin yozuvida yoz.",
+                prompt="Bu o'zbek tilidagi ovozli xabar. Foydalanuvchi o'zbek tilida gaplashadi. Ismi Alisher. Hodiyev Education o'quv markazi, Obsidian, ChatGPT, Claude, Make.com, Telegram bot, Python kabi atamalar uchrashi mumkin. Lotin yozuvida yoz.",
                 response_format="json"
             )
 
