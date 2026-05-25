@@ -53,13 +53,14 @@ def transcribe():
             os.unlink(tmp_oga_path)
             return jsonify({"error": f"ffmpeg xatosi: {result.stderr}"}), 500
 
-        # Whisper API orqali transkript qilish
-        with open(tmp_mp3_path, "rb") as audio_file:
-            transcript = client.audio.transcriptions.create(
-                model="whisper-1",
-                file=audio_file,
-                
-            )
+       with open(tmp_mp3_path, "rb") as audio_file:
+    transcript = client.audio.transcriptions.create(
+        model="gpt-4o-transcribe",
+        file=audio_file,
+        language="uz",
+        prompt="Foydalanuvchi o'zbek tilida gaplashadi. Ismi Alisher. Hodiyev Education o'quv markazi, Obsidian, ChatGPT, Claude, Make.com, Telegram bot, Python kabi atamalar uchrashi mumkin. Lotin yozuvida yoz.",
+        response_format="json"
+    )
 
         # Vaqtinchalik fayllarni o'chirish
         os.unlink(tmp_oga_path)
